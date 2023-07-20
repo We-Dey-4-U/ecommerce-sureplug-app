@@ -9,9 +9,9 @@ const LoginPage = () => {
 
   useEffect(() => {
     if(isAuthenticated === true){
-      navigate("/");
+      navigate("/"); //navigate to root directory
     }
-  }, [])
+  }, [isAuthenticated,navigate])
   
   return (
     <div>

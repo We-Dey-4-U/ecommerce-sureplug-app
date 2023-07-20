@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../styles/styles";
-import { categoriesData, productData } from "../../static/data";
+import { categoriesData, productData  } from "../../static/data";
 import {
   AiOutlineHeart,
   AiOutlineSearch,
@@ -56,12 +56,9 @@ const Header = ({ activeHeading }) => {
       <div className={`${styles.section}`}>
         <div className="hidden 800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
           <div>
-            <Link to="/">
-              <img
-                src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-                alt=""
-              />
-            </Link>
+            <Link to="/" className="text-lg font-bold">
+              We-dey- <span className="text-[#3957db]">4u</span>{" "}
+              </Link>
           </div>
           {/* search box */}
           <div className="w-[50%] relative">
@@ -215,12 +212,8 @@ const Header = ({ activeHeading }) => {
             />
           </div>
           <div>
-            <Link to="/">
-              <img
-                src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-                alt=""
-                className="mt-3 cursor-pointer"
-              />
+          <Link to="/" className="text-lg font-bold">
+              We-dey- <span className="text-[#3957db]">4u</span>{" "}
             </Link>
           </div>
           <div>

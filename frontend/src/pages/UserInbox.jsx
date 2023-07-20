@@ -285,7 +285,7 @@ const MessageList = ({
       }
     };
     getUser();
-  }, [me, data]);
+  }, [me, data, online,  setActiveStatus]);
 
   return (
     <div

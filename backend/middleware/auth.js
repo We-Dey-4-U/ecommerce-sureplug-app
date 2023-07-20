@@ -41,3 +41,8 @@ exports.isAdmin = (...roles) => {
         next();
     }
 }
+
+
+//this file is to authenticate user routes and seller routes
+//bcrypt for hashing user passwords
+//jsonwebtoken for signing tokens
