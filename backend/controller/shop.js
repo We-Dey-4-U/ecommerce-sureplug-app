@@ -39,7 +39,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 
     const activationToken = createActivationToken(seller);
 
-    const activationUrl = `https://localhost:3000/seller/activation/${activationToken}`;
+    const activationUrl = `https://ecommerce-sureplug-app-lrbw.vercel.app/seller/activation/${activationToken}`;
 
     try {
       await sendMail({

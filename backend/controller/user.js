@@ -35,7 +35,7 @@ router.post("/create-user", async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://localhost:3000/activation/${activationToken}`;
+    const activationUrl = `https://ecommerce-sureplug-app-lrbw.vercel.app/activation/${activationToken}`;
 
     try {
       await sendMail({
