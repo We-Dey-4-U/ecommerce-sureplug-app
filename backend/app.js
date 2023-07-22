@@ -18,8 +18,8 @@ app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
 
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({ extended: true, limit: "50mb", parameterLimit:50000 }));
+app.use(bodyParser.json({ extended: true, limit: '20mb'}));
+app.use(bodyParser.urlencoded({ extended: true, limit: "20mb", parameterLimit:100000 }));
 
 // config
 if (process.env.NODE_ENV !== "PRODUCTION") {
