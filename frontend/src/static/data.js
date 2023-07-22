@@ -210,7 +210,7 @@ export const navItems = [
       title: "cosmetics and body care",
       subTitle: "",
       image_Url:
-        "https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2021-07/kosme1.png",
+        "https://res.cloudinary.com/dpsfqmhad/image/upload/v1680023576/online-shop/online-shop2/iphone12pro_qs0cij.jpg",
     },
     {
       id: 3,
