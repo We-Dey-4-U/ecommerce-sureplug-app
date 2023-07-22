@@ -210,7 +210,7 @@ export const navItems = [
       title: "cosmetics and body care",
       subTitle: "",
       image_Url:
-        "https://res.cloudinary.com/dpsfqmhad/image/upload/v1680023576/online-shop/online-shop2/iphone12pro_qs0cij.jpg",
+        "",
     },
     {
       id: 3,
@@ -231,7 +231,7 @@ export const navItems = [
       title: "Shoes",
       subTitle: "",
       image_Url:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBQPQMVNRd6TtDkGs2dCri0Y-rxKkFOiEWw&usqp=CAU",
+      "https://res.cloudinary.com/dpsfqmhad/image/upload/v1679299052/nike23_iinovl.jpg",
     },
     {
       id: 6,
@@ -242,16 +242,16 @@ export const navItems = [
     },
     {
       id: 7,
-      title: "Pet Care",
+      title: "Watches",
       subTitle: "",
-      image_Url: "https://cdn.openpr.com/T/c/Tc15444071_g.jpg",
+      image_Url: "https://res.cloudinary.com/dpsfqmhad/image/upload/v1679235879/samples/ecommerce/analog-classic.jpg",
     },
     {
       id: 8,
       title: "Mobile and Tablets",
       subTitle: "",
       image_Url:
-        "https://st-troy.mncdn.com/mnresize/1500/1500/Content/media/ProductImg/original/mpwp3tua-apple-iphone-14-256gb-mavi-mpwp3tua-637986832343472449.jpg",
+        "https://res.cloudinary.com/dpsfqmhad/image/upload/v1680023605/online-shop/online-shop2/galaxyS_jmgkud.png",
     },
     {
       id: 9,
