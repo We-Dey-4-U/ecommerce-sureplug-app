@@ -7,7 +7,7 @@ const cors = require("cors");
 const path = require("path");
 
 app.use(cors({
-  origin: 'https://ecommerce-sureplug-app-lrbw.vercel.app', //frontend url
+  origin: ['https://ecommerce-sureplug-app-lrbw.vercel.app', ] ,     //frontend url
   credentials: true
 }));
 

@@ -31,7 +31,9 @@ router.post(
         text: messageData.text,
         sender: messageData.sender,
         images: messageData.images ? messageData.images : undefined,
-      });
+     });
+
+    
 
       await message.save();
 
