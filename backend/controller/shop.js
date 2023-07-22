@@ -20,7 +20,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
     }
 
     const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-      folder: "avatars",
+      folder: "avatars", width: 1280, height: 720, crop: "limit"
     });
 
 
