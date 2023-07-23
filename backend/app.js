@@ -4,36 +4,22 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path = require("path");
 
 app.use(cors({
-  origin: ['https://ecommerce-sureplug-app-lrbw.vercel.app', ] ,     //frontend url
+  origin: ['https://ecommerce-sureplug-app-lrbw.vercel.app', ] ,  //frontend url
   credentials: true
 }));
 
 app.use(express.json());
 app.use(cookieParser());
-app.use("/", express.static(path.join(__dirname,"./uploads")));
 app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
 
-
-
-//pass request to the body parser(middleware is use )
-//app.use(bodyParser.json());
-app.use(express.json({ 
-  limit: '25mb', 
- // type:'application/json'
-}));
-app.use(express.urlencoded({ 
-  limit: "25mb",  
+app.use(bodyParser.urlencoded({ 
   extended: true, 
-  //parameterLimit:100000,
- // type:'application/x-www-form-urlencoded' 
+  limit: "50mb" 
 }));
-
-
 
 // config
 if (process.env.NODE_ENV !== "PRODUCTION") {
