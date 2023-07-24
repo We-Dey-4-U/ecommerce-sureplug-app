@@ -5,7 +5,9 @@ import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteEvent, getAllEventsShop } from "../../redux/actions/event";
+// eslint-disable-next-line no-unused-vars
 import { getAllProductsShop } from "../../redux/actions/product";
+// eslint-disable-next-line no-unused-vars
 import { deleteProduct } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
 
@@ -17,7 +19,7 @@ const AllEvents = () => {
 
   useEffect(() => {
     dispatch(getAllEventsShop(seller._id));
-  }, [dispatch]);
+  }, [dispatch, seller._id]);
 
   const handleDelete = (id) => {
     dispatch(deleteEvent(id));

@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/role-supports-aria-props */
+/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useRef, useState } from "react";
 import Header from "../components/Layout/Header";
 import { useSelector } from "react-redux";
@@ -21,7 +24,7 @@ const UserInbox = () => {
   const [newMessage, setNewMessage] = useState("");
   const [userData, setUserData] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const [images, setImages] = useState();
+  const [ setImages] = useState();
   const [activeStatus, setActiveStatus] = useState(false);
   const [open, setOpen] = useState(false);
   const scrollRef = useRef(null);
@@ -402,6 +405,9 @@ const SellerInbox = ({
       </div>
 
       {/* send message input */}
+     
+      
+      
       <form
         aria-required={true}
         className="p-3 relative w-full flex justify-between items-center"

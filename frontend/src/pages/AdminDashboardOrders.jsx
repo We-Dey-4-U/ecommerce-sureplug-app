@@ -8,6 +8,7 @@ import { getAllOrdersOfAdmin } from "../redux/actions/order";
 const AdminDashboardOrders = () => {
   const dispatch = useDispatch();
 
+  // eslint-disable-next-line no-unused-vars
   const { adminOrders, adminOrderLoading } = useSelector(
     (state) => state.order
   );

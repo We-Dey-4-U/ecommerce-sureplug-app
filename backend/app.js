@@ -21,6 +21,9 @@ app.use(bodyParser.urlencoded({
   limit: "50mb" 
 }));
 
+
+app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
+
 // config
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({

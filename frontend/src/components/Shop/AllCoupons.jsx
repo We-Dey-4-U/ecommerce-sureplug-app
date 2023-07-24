@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/role-supports-aria-props */
+/* eslint-disable react/jsx-no-comment-textnodes */
 import { Button } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import axios from "axios";
@@ -37,7 +39,7 @@ const AllCoupons = () => {
       .catch((error) => {
         setIsLoading(false);
       });
-  }, [dispatch]);
+  }, [dispatch, seller._id]);
 
   const handleDelete = async (id) => {
     axios.delete(`${server}/coupon/delete-coupon/${id}`,{withCredentials: true}).then((res) => {
@@ -152,6 +154,7 @@ const AllCoupons = () => {
                   Create Coupon code
                 </h5>
                 {/* create coupoun code */}
+                
                 <form onSubmit={handleSubmit} aria-required={true}>
                   <br />
                   <div>
