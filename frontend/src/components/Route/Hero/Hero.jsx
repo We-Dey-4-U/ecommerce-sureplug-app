@@ -8,21 +8,16 @@ const Hero = () => {
       className={`relative min-h-[70vh] 800px:min-h-[80vh] w-full bg-no-repeat ${styles.noramlFlex}`}
       style={{
         backgroundImage:
-          "url()",
+          "url(https://res.cloudinary.com/dfkowljpy/image/upload/v1690202749/samples/food/foodhero_ktuzyx.png)",
       }}
     >
       <div className={`${styles.section} w-[90%] 800px:w-[60%]`}>
         <h1
-          className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#3d3a3a] font-[600] capitalize`}
+          className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#000] font-[1000] capitalize`}
         >
-          Best Nigeria  <br /><span className="text-[#3957db]"> Food exportation</span>{" "}
+          Best African  <br /><span className="text-[#3957db]"> Food exports plugs</span>{" "}
         </h1>
-        <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#000000ba]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae,
-          assumenda? Quisquam itaque <br /> exercitationem labore vel, dolore
-          quidem asperiores, laudantium temporibus soluta optio consequatur{" "}
-          <br /> aliquam deserunt officia. Dolorum saepe nulla provident.
-        </p>
+      
         <Link to="/products" className="inline-block">
             <div className={`${styles.button} mt-5`}>
                  <span className="text-[#fff] font-[Poppins] text-[18px]">
@@ -32,7 +27,7 @@ const Hero = () => {
         </Link>
       </div>
     </div>
-  );
+    );
 };
 
 export default Hero;

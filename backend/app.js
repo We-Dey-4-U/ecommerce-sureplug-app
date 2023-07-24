@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
+app.use(bodyParser.urlencoded({ extended: true, limit: "2.03mb" }));
 
 // config
 if (process.env.NODE_ENV !== "PRODUCTION") {

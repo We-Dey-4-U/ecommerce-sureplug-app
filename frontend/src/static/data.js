@@ -200,74 +200,149 @@ export const navItems = [
   export const categoriesData = [
     {
       id: 1,
-      title: "Computers and Laptops",
+      title: "palm oil",
       subTitle: "",
       image_Url:
         "https://cdn.shopify.com/s/files/1/1706/9177/products/NEWAppleMacbookProwithM1ProChip14InchLaptop2021ModelMKGQ3LL_A_16GB_1TBSSD_custommacbd.jpg?v=1659592838",
     },
     {
       id: 2,
-      title: "cosmetics and body care",
+      title: "Vegitables (fresh dry)",
       subTitle: "",
       image_Url:
         "",
     },
     {
       id: 3,
-      title: "Accesories",
+      title: "Ogbono seeds",
       subTitle: "",
       image_Url:
         "https://img.freepik.com/free-vector/ordering-goods-online-internet-store-online-shopping-niche-e-commerce-website-mother-buying-babies-clothes-footwear-toys-infant-accessories_335657-2345.jpg?w=2000",
     },
     {
       id: 4,
-      title: "Cloths",
+      title: "Bitter cola",
       subTitle: "",
       image_Url:
         "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
     },
     {
       id: 5,
-      title: "Shoes",
+      title: "Garri",
       subTitle: "",
       image_Url:
       "https://res.cloudinary.com/dpsfqmhad/image/upload/v1679299052/nike23_iinovl.jpg",
     },
     {
       id: 6,
-      title: "Gifts",
+      title: "Dry fish",
       subTitle: "",
       image_Url:
         "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
     },
     {
       id: 7,
-      title: "Watches",
+      title: "Ground nut",
       subTitle: "",
       image_Url: "https://res.cloudinary.com/dpsfqmhad/image/upload/v1679235879/samples/ecommerce/analog-classic.jpg",
     },
     {
       id: 8,
-      title: "Mobile and Tablets",
+      title: "Beans",
       subTitle: "",
       image_Url:
         "https://res.cloudinary.com/dpsfqmhad/image/upload/v1680023605/online-shop/online-shop2/galaxyS_jmgkud.png",
     },
     {
       id: 9,
-      title: "Music and Gaming",
+      title: "Processed african giant snails",
       subTitle: "",
       image_Url:
         "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
     },
     {
       id: 10,
-      title: "Others",
+      title: "Local Seasoning",
       subTitle: "",
       image_Url:
         "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
     },
-  ];
+
+
+    {
+      id: 7,
+      title: "Yam tuberst",
+      subTitle: "",
+      image_Url: "https://res.cloudinary.com/dpsfqmhad/image/upload/v1679235879/samples/ecommerce/analog-classic.jpg",
+    },
+    {
+      id: 8,
+      title: "Honey",
+      subTitle: "",
+      image_Url:
+        "https://res.cloudinary.com/dpsfqmhad/image/upload/v1680023605/online-shop/online-shop2/galaxyS_jmgkud.png",
+    },
+    {
+      id: 9,
+      title: "Cocoa",
+      subTitle: "",
+      image_Url:
+        "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
+    },
+   
+    
+    {
+      id: 10,
+      title: "crayfish",
+      subTitle: "",
+      image_Url:
+        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+    },
+
+
+    {
+      id: 10,
+      title: "Egwusi",
+      subTitle: "",
+      image_Url:
+        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+    },
+
+
+    {
+      id: 8,
+      title: "Cashew",
+      subTitle: "",
+      image_Url:
+        "https://res.cloudinary.com/dpsfqmhad/image/upload/v1680023605/online-shop/online-shop2/galaxyS_jmgkud.png",
+    },
+    {
+      id: 9,
+      title: "Ginger",
+      subTitle: "",
+      image_Url:
+        "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
+    },
+   
+    
+    {
+      id: 10,
+      title: "Garlic",
+      subTitle: "",
+      image_Url:
+        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+    },
+
+
+    {
+      id: 10,
+      title: "Egwusi",
+      subTitle: "",
+      image_Url:
+        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+    },
+
+];
   
   
   
