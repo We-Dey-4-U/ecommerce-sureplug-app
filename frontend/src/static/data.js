@@ -203,91 +203,91 @@ export const navItems = [
       title: "palm oil",
       subTitle: "",
       image_Url:
-        "https://cdn.shopify.com/s/files/1/1706/9177/products/NEWAppleMacbookProwithM1ProChip14InchLaptop2021ModelMKGQ3LL_A_16GB_1TBSSD_custommacbd.jpg?v=1659592838",
+        "https://res.cloudinary.com/dfkowljpy/image/upload/v1690208140/red_oil_234_bhkabb.png",
     },
     {
       id: 2,
       title: "Vegitables (fresh dry)",
       subTitle: "",
       image_Url:
-        "",
+        "https://res.cloudinary.com/dfkowljpy/image/upload/v1690207796/vegetabls256_lphrsr.png",
     },
     {
       id: 3,
       title: "Ogbono seeds",
       subTitle: "",
       image_Url:
-        "https://img.freepik.com/free-vector/ordering-goods-online-internet-store-online-shopping-niche-e-commerce-website-mother-buying-babies-clothes-footwear-toys-infant-accessories_335657-2345.jpg?w=2000",
+        "https://res.cloudinary.com/dfkowljpy/image/upload/v1690207111/ogbono2_qtxfjf.png",
     },
     {
       id: 4,
       title: "Bitter cola",
       subTitle: "",
       image_Url:
-        "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
+        "https://res.cloudinary.com/dfkowljpy/image/upload/v1690211960/bitter_cola_2_vfvbb6.png",
     },
     {
       id: 5,
       title: "Garri",
       subTitle: "",
       image_Url:
-      "https://res.cloudinary.com/dpsfqmhad/image/upload/v1679299052/nike23_iinovl.jpg",
+      "https://res.cloudinary.com/dfkowljpy/image/upload/v1690212333/ijebu_garri_2_i2h8ge.png",
     },
     {
       id: 6,
       title: "Dry fish",
       subTitle: "",
       image_Url:
-        "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
+        "https://res.cloudinary.com/dfkowljpy/image/upload/v1690208618/dryfish_2_wp0ege.png",
     },
     {
       id: 7,
       title: "Ground nut",
       subTitle: "",
-      image_Url: "https://res.cloudinary.com/dpsfqmhad/image/upload/v1679235879/samples/ecommerce/analog-classic.jpg",
+      image_Url: "https://res.cloudinary.com/dfkowljpy/image/upload/v1690212631/goundnut_2_czc5g8.png",
     },
     {
       id: 8,
       title: "Beans",
       subTitle: "",
       image_Url:
-        "https://res.cloudinary.com/dpsfqmhad/image/upload/v1680023605/online-shop/online-shop2/galaxyS_jmgkud.png",
+        "https://res.cloudinary.com/dfkowljpy/image/upload/v1690212934/beans_2_wslwnq.png",
     },
     {
       id: 9,
       title: "Processed african giant snails",
       subTitle: "",
       image_Url:
-        "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
+        "",
     },
     {
       id: 10,
       title: "Local Seasoning",
       subTitle: "",
       image_Url:
-        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+      "https://res.cloudinary.com/dfkowljpy/image/upload/v1690038738/samples/food/spices.jpg",
     },
 
 
     {
       id: 7,
-      title: "Yam tuberst",
+      title: "Yam tubers",
       subTitle: "",
-      image_Url: "https://res.cloudinary.com/dpsfqmhad/image/upload/v1679235879/samples/ecommerce/analog-classic.jpg",
+      image_Url: "https://res.cloudinary.com/dfkowljpy/image/upload/v1690206334/yam_234_uz2pms.png",
     },
     {
       id: 8,
       title: "Honey",
       subTitle: "",
       image_Url:
-        "https://res.cloudinary.com/dpsfqmhad/image/upload/v1680023605/online-shop/online-shop2/galaxyS_jmgkud.png",
+        "",
     },
     {
       id: 9,
       title: "Cocoa",
       subTitle: "",
       image_Url:
-        "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
+        "https://res.cloudinary.com/dfkowljpy/image/upload/v1690210624/Cocoa_3_btto8h.png",
     },
    
     
@@ -296,16 +296,16 @@ export const navItems = [
       title: "crayfish",
       subTitle: "",
       image_Url:
-        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+        "https://res.cloudinary.com/dfkowljpy/image/upload/v1690209720/crayfish_final_slfi8v.png",
     },
 
 
     {
       id: 10,
-      title: "Egwusi",
+      title: "Egusi",
       subTitle: "",
       image_Url:
-        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+      "https://res.cloudinary.com/dfkowljpy/image/upload/v1690211257/equsi_2_oneaoa.png",
     },
 
 
@@ -314,14 +314,14 @@ export const navItems = [
       title: "Cashew",
       subTitle: "",
       image_Url:
-        "https://res.cloudinary.com/dpsfqmhad/image/upload/v1680023605/online-shop/online-shop2/galaxyS_jmgkud.png",
+        "",
     },
     {
       id: 9,
       title: "Ginger",
       subTitle: "",
       image_Url:
-        "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
+        "",
     },
    
     
@@ -330,16 +330,16 @@ export const navItems = [
       title: "Garlic",
       subTitle: "",
       image_Url:
-        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+        "",
     },
 
 
     {
       id: 10,
-      title: "Egwusi",
+      title: "others",
       subTitle: "",
       image_Url:
-        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+        "",
     },
 
 ];
