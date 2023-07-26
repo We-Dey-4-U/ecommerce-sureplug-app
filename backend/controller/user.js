@@ -20,7 +20,8 @@ router.post("/create-user", async (req, res, next) => {
     }
 
     const myCloud = await cloudinary.v2.uploader.upload(avatar, {
-      folder: "avatars", width: 100, height: 100, gravity: "face", limit: "10mb" });
+      folder: "avatars", 
+    });
 
     const user = {
       name: name,
@@ -224,7 +225,6 @@ router.put(
 
         const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
           folder: "avatars",
-          width: 150,
         });
 
         existsUser.avatar = {
