@@ -12,7 +12,7 @@ const Singup = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
-  const [avatar, setAvatar] = useState(false);
+  const [avatar, setAvatar] = useState(null);
 
   const handleFileInputChange = (e) => {
     const reader = new FileReader();

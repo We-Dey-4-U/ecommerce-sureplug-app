@@ -18,11 +18,14 @@ router.post("/create-user", async (req, res, next) => {
     if (userEmail) {
       return next(new ErrorHandler("User already exists", 400));
     }
-
+  
+    console.log("Before Cloudinary Upload:", avatar);
     const myCloud = await cloudinary.v2.uploader.upload(avatar, {
       folder: "avatars", 
     });
-
+    console.log("After Cloudinary Upload:", myCloud);
+    
+    
     const user = {
       name: name,
       email: email,

@@ -10,11 +10,6 @@ app.use(cors({
   credentials: true
 }));
 
-app.use(express.json());
-app.use(cookieParser());
-app.use("/test", (req, res) => {
-  res.send("Hello world!");
-});
 
 
 
@@ -23,6 +18,18 @@ app.use(bodyParser.urlencoded({
   extended: true, 
   limit: "10mb" 
 }));
+
+
+
+app.use(express.json());
+app.use(cookieParser());
+app.use("/test", (req, res) => {
+  res.send("Hello world!");
+});
+
+
+
+
 
 
 
