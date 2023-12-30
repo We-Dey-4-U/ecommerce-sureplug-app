@@ -18,7 +18,7 @@ const { isAuthenticated, isAdmin } = require("../middleware/auth");
 //const upload = multer({ storage, limits }).single('avatar'); // 'avatar' should match the name attribute in your form
 
 // create user
-router.post("/create-user", checkFileSize,  async (req, res, next) => {
+router.post("/create-user",  async (req, res, next) => {
   try {
     const { name, email, password, avatar} = req.body;
     
