@@ -63,6 +63,7 @@ const Singup = () => {
               <div className="mt-1">
                 <input
                   type="text"
+                  id="name"
                   name="text"
                   autoComplete="name"
                   required
@@ -83,6 +84,7 @@ const Singup = () => {
               <div className="mt-1">
                 <input
                   type="email"
+                  id="email"
                   name="email"
                   autoComplete="email"
                   required
@@ -103,6 +105,7 @@ const Singup = () => {
               <div className="mt-1 relative">
                 <input
                   type={visible ? "text" : "password"}
+                  id="password"
                   name="password"
                   autoComplete="current-password"
                   required
@@ -150,8 +153,8 @@ const Singup = () => {
                   <span>Upload a file</span>
                   <input
                     type="file"
+                    id="avatar" 
                     name="avatar"
-                    id="file-input"
                     accept=".jpg,.jpeg,.png"
                     onChange={handleFileInputChange}
                     className="sr-only"
