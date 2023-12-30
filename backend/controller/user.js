@@ -1,4 +1,5 @@
 const express = require("express");
+const multer = require("multer"); // Import multer
 const User = require("../model/user");
 const router = express.Router();
 const cloudinary = require("cloudinary");
@@ -9,10 +10,19 @@ const sendMail = require("../utils/sendMail");
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 
+
+
+// Multer middleware configuration
+const storage = multer.memoryStorage(); // Use memory storage
+const limits = { fileSize: 10 * 1024 * 1024 }; // 10MB limit
+const upload = multer({ storage, limits }).single('avatar'); // 'avatar' should match the name attribute in your form
+
 // create user
 router.post("/create-user", checkFileSize,  async (req, res, next) => {
   try {
-    const { name, email, password, avatar } = req.body;
+    const { name, email, password } = req.body;
+    const avatar = req.file; // Access the uploaded file using req.file
+    
     const userEmail = await User.findOne({ email });
 
     if (userEmail) {
@@ -20,9 +30,14 @@ router.post("/create-user", checkFileSize,  async (req, res, next) => {
     }
   
    
-    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
-      folder: "avatars", 
-    });
+    //const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+     // folder: "avatars", 
+  //  });
+
+   // Handle avatar upload using multer
+   const myCloud = await cloudinary.v2.uploader.upload(avatar.buffer.toString("base64"), {
+    folder: "avatars",
+  });
     
     
     
