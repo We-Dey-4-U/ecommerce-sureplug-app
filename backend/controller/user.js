@@ -17,9 +17,12 @@ const { isAuthenticated, isAdmin } = require("../middleware/auth");
 //const limits = { fileSize: 10 * 1024 * 1024 }; // 10MB limit
 //const upload = multer({ storage, limits }).single('avatar'); // 'avatar' should match the name attribute in your form
 // create user
+
+
+// create user
 router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
   try {
-    const { name, email, password, avatar} = req.body;
+    const { name, email, password, avatar } = req.body;
 
     const userEmail = await User.findOne({ email });
 
@@ -28,7 +31,7 @@ router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
     }
 
     const myCloud = await cloudinary.v2.uploader.upload(avatar, {
-      folder: "avatars", 
+      folder: "avatars",
     });
 
     const user = {
@@ -45,20 +48,25 @@ router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
 
     const activationUrl = `https://ecommerce-sureplug-app-lrbw.vercel.app/activation/${activationToken}`;
 
-    await sendMail({
-      email: user.email,
-      subject: "Activate your account",
-      message: `Hello ${user.name}, please click on the link to activate your account: ${activationUrl}`,
-    });
-
-    res.status(201).json({
-      success: true,
-      message: `please check your email:- ${user.email} to activate your account!`,
-    });
+    try {
+      await sendMail({
+        email: user.email,
+        subject: "Activate your account",
+        message: `Hello ${user.name}, please click on the link to activate your account: ${activationUrl}`,
+      });
+      res.status(201).json({
+        success: true,
+        message: `Please check your email: ${user.email} to activate your account!`,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
   } catch (error) {
-    return next(new ErrorHandler(error.message, 500));
+    return next(new ErrorHandler(error.message, 400));
   }
 }));
+
+
 
 
 // create activation token
@@ -419,17 +427,7 @@ router.delete(
   })
 );
 
-// Error handling middleware
-router.use((err, req, res, next) => {
-  // Handle errors
-  console.error(err);
 
-  // Customize the response based on the error
-  res.status(err.statusCode || 500).json({
-    success: false,
-    error: err.message || 'Internal Server Error',
-  });
-});
   
  
 module.exports = router;
