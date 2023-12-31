@@ -1,5 +1,4 @@
 const express = require("express");
-//const multer = require("multer"); // Import multer
 const User = require("../model/user");
 const router = express.Router();
 const cloudinary = require("cloudinary");
@@ -10,20 +9,10 @@ const sendMail = require("../utils/sendMail");
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 
-
-
-// Multer middleware configuration
-//const storage = multer.memoryStorage(); // Use memory storage
-//const limits = { fileSize: 10 * 1024 * 1024 }; // 10MB limit
-//const upload = multer({ storage, limits }).single('avatar'); // 'avatar' should match the name attribute in your form
 // create user
-
-
-// create user
-router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
+router.post("/create-user", async (req, res, next) => {
   try {
     const { name, email, password, avatar } = req.body;
-
     const userEmail = await User.findOne({ email });
 
     if (userEmail) {
@@ -31,7 +20,7 @@ router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
     }
 
     const myCloud = await cloudinary.v2.uploader.upload(avatar, {
-      folder: "avatars",
+      folder: "avatars", width: 100, height: 100, gravity: "face", limit: "10mb"
     });
 
     const user = {
@@ -46,7 +35,7 @@ router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://ecommerce-sureplug-app-lrbw.vercel.app/activation/${activationToken}`;
+    const activationUrl = 'https://ecommerce-sureplug-app-lrbw.vercel.app/activation/${activationToken};'
 
     try {
       await sendMail({
@@ -56,7 +45,7 @@ router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
       });
       res.status(201).json({
         success: true,
-        message: `Please check your email: ${user.email} to activate your account!`,
+        message: `please check your email:- ${user.email} to activate your account!`,
       });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
@@ -64,10 +53,7 @@ router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
   } catch (error) {
     return next(new ErrorHandler(error.message, 400));
   }
-}));
-
-
-
+});
 
 // create activation token
 const createActivationToken = (user) => {
@@ -239,6 +225,7 @@ router.put(
 
         const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
           folder: "avatars",
+          width: 150,
         });
 
         existsUser.avatar = {
@@ -427,7 +414,4 @@ router.delete(
   })
 );
 
-
-  
- 
 module.exports = router;
