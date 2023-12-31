@@ -16,31 +16,21 @@ const { isAuthenticated, isAdmin } = require("../middleware/auth");
 //const storage = multer.memoryStorage(); // Use memory storage
 //const limits = { fileSize: 10 * 1024 * 1024 }; // 10MB limit
 //const upload = multer({ storage, limits }).single('avatar'); // 'avatar' should match the name attribute in your form
-
 // create user
-router.post("/create-user",  async (req, res, next) => {
+router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
   try {
     const { name, email, password, avatar} = req.body;
-    
-    
+
     const userEmail = await User.findOne({ email });
 
     if (userEmail) {
       return next(new ErrorHandler("User already exists", 400));
     }
-  
-   
-    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
-     folder: "avatars", 
-   });
 
-   // Handle avatar upload using multer
-   //const myCloud = await cloudinary.v2.uploader.upload(avatar.buffer.toString("base64"), {
-   // folder: "avatars",
-  //});
-    
-    
-    
+    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+      folder: "avatars", 
+    });
+
     const user = {
       name: name,
       email: email,
@@ -55,23 +45,21 @@ router.post("/create-user",  async (req, res, next) => {
 
     const activationUrl = `https://ecommerce-sureplug-app-lrbw.vercel.app/activation/${activationToken}`;
 
-    try {
-      await sendMail({
-        email: user.email,
-        subject: "Activate your account",
-        message: `Hello ${user.name}, please click on the link to activate your account: ${activationUrl}`,
-      });
-      res.status(201).json({
-        success: true,
-        message: `please check your email:- ${user.email} to activate your account!`,
-      });
-    } catch (error) {
-      return next(new ErrorHandler(error.message, 500));
-    }
+    await sendMail({
+      email: user.email,
+      subject: "Activate your account",
+      message: `Hello ${user.name}, please click on the link to activate your account: ${activationUrl}`,
+    });
+
+    res.status(201).json({
+      success: true,
+      message: `please check your email:- ${user.email} to activate your account!`,
+    });
   } catch (error) {
-    return next(new ErrorHandler(error.message, 400));
+    return next(new ErrorHandler(error.message, 500));
   }
-});
+}));
+
 
 // create activation token
 const createActivationToken = (user) => {
@@ -431,4 +419,17 @@ router.delete(
   })
 );
 
+// Error handling middleware
+router.use((err, req, res, next) => {
+  // Handle errors
+  console.error(err);
+
+  // Customize the response based on the error
+  res.status(err.statusCode || 500).json({
+    success: false,
+    error: err.message || 'Internal Server Error',
+  });
+});
+  
+ 
 module.exports = router;
