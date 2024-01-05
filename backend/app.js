@@ -12,16 +12,6 @@ app.use(cors({
 }));
 
 
-
-
-app.use(express.json({limit: '50mb'}))
-app.use(bodyParser.urlencoded({ 
-  extended: true, 
-  limit: "10mb" 
-}));
-
-
-
 app.use(express.json());
 app.use(cookieParser());
 app.use("/test", (req, res) => {
@@ -31,7 +21,11 @@ app.use("/test", (req, res) => {
 
 
 
-
+app.use(express.json({limit: '50mb'}))
+app.use(bodyParser.urlencoded({ 
+  extended: true, 
+  limit: "10mb" 
+}));
 
 
 
@@ -70,11 +64,7 @@ app.use("/api/v2/withdraw", withdraw);
 // it's for ErrorHandling
 app.use(ErrorHandler);
 
-// Global unhandled rejection handler
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-  // Additional application-specific logging, re-throwing, or other logic can be added here
-});
+
 
 
 module.exports = app;
