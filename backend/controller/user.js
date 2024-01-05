@@ -1,17 +1,16 @@
-import express from 'express';
-import cloudinary from 'cloudinary';
-import jwt from 'jsonwebtoken';
-import User from '../model/user';
-import ErrorHandler from '../utils/ErrorHandler';
-import catchAsyncErrors from '../middleware/catchAsyncErrors';
-import sendMail from '../utils/sendMail';
-import sendToken from '../utils/jwtToken';
-import { isAuthenticated, isAdmin } from '../middleware/auth';
-
+const express = require("express");
+const User = require("../model/user");
 const router = express.Router();
+const cloudinary = require("cloudinary");
+const ErrorHandler = require("../utils/ErrorHandler");
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const jwt = require("jsonwebtoken");
+const sendMail = require("../utils/sendMail");
+const sendToken = require("../utils/jwtToken");
+const { isAuthenticated, isAdmin } = require("../middleware/auth");
 
 // create user
-router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
+router.post("/create-user", async (req, res, next) => {
   try {
     const { name, email, password, avatar } = req.body;
     const userEmail = await User.findOne({ email });
@@ -25,9 +24,9 @@ router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
     });
 
     const user = {
-      name,
-      email,
-      password,
+      name: name,
+      email: email,
+      password: password,
       avatar: {
         public_id: myCloud.public_id,
         url: myCloud.secure_url,
@@ -36,7 +35,7 @@ router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://ecommerce-sureplug-app-lrbw.vercel.app/activation/${activationToken}`;
+    const activationUrl = `https://ecommerce-sureplug23-1xm1.vercel.app/activation/${activationToken}`;
 
     try {
       await sendMail({
@@ -46,7 +45,7 @@ router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
       });
       res.status(201).json({
         success: true,
-        message: `Please check your email: ${user.email} to activate your account!`,
+        message: `please check your email:- ${user.email} to activate your account!`,
       });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
@@ -54,7 +53,7 @@ router.post("/create-user", catchAsyncErrors(async (req, res, next) => {
   } catch (error) {
     return next(new ErrorHandler(error.message, 400));
   }
-}));
+});
 
 // create activation token
 const createActivationToken = (user) => {
