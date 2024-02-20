@@ -23,15 +23,15 @@ router.post("/create-user", async (req, res, next) => {
       folder: "avatars", width: 100, height: 100, gravity: "face", limit: "10mb"
     });
 
-    const user = await User.create({
-      name,
-      email,
-      password,
+    const user = {
+      name: name,
+      email: email,
+      password: password,
       avatar: {
         public_id: myCloud.public_id,
         url: myCloud.secure_url,
       },
-    });
+    };
 
     const activationToken = createActivationToken(user);
 
@@ -57,7 +57,7 @@ router.post("/create-user", async (req, res, next) => {
 
 // create activation token
 const createActivationToken = (user) => {
-  return jwt.sign(user.toJSON(), process.env.ACTIVATION_SECRET, {
+  return jwt.sign(user, process.env.ACTIVATION_SECRET, {
     expiresIn: "20m",
   });
 };
@@ -91,15 +91,12 @@ router.post(
         password,
       });
 
-      res.status(201).json({ success: true, message: "Account activated successfully!" });
+      sendToken(user, 201, res);
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
     }
   })
 );
-
-
-
 
 // login user
 router.post(
