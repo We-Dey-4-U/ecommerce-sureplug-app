@@ -23,7 +23,15 @@ router.post("/create-user", async (req, res, next) => {
       folder: "avatars", width: 100, height: 100, gravity: "face", limit: "10mb"
     });
 
-    
+    const user = {
+      name: name,
+      email: email,
+      password: password,
+      avatar: {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      },
+    };
 
     const activationToken = createActivationToken(user);
 
