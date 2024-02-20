@@ -9,78 +9,58 @@ const sendMail = require("../utils/sendMail");
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 
-
-
-
-
 // create user
-router.post("/create-user", (req, res, next) => {
-  const { name, email, password, avatar } = req.body;
+router.post("/create-user", async (req, res, next) => {
+  try {
+    const { name, email, password, avatar } = req.body;
+    const userEmail = await User.findOne({ email });
 
-  User.findOne({ email })
-    .then(userEmail => {
-      if (userEmail) {
-        return Promise.reject(new ErrorHandler("User already exists", 400));
-      }
+    if (userEmail) {
+      return next(new ErrorHandler("User already exists", 400));
+    }
 
-      return cloudinary.v2.uploader.upload(avatar, {
-        folder: "avatars", width: 100, height: 100, gravity: "face", limit: "10mb"
-      });
-    })
-    .then(myCloud => {
-      const user = {
-        name: name,
-        email: email,
-        password: password,
-        avatar: {
-          public_id: myCloud.public_id,
-          url: myCloud.secure_url,
-        },
-      };
+    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+      folder: "avatars", width: 100, height: 100, gravity: "face", limit: "10mb"
+    });
 
-      const activationToken = createActivationToken(user);
+    const user = await User.create({
+      name,
+      email,
+      password,
+      avatar: {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      },
+    });
 
-      const activationUrl = `https://ecommerce-sureplug23-1xm1.vercel.app/activation/${activationToken}`;
+    const activationToken = createActivationToken(user);
 
-      return sendMail({
+    const activationUrl = `https://ecommerce-sureplug23-1xm1.vercel.app/activation/${activationToken}`;
+
+    try {
+      await sendMail({
         email: user.email,
         subject: "Activate your account",
         message: `Hello ${user.name}, please click on the link to activate your account: ${activationUrl}`,
       });
-    })
-    .then(() => {
       res.status(201).json({
         success: true,
-        message: `Please check your email (${email}) to activate your account!`,
+        message: `Please check your email: ${user.email} to activate your account!`,
       });
-    })
-    .catch(error => {
-      next(new ErrorHandler(error.message, error.status || 500));
-    });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  } catch (error) {
+    return next(new ErrorHandler(error.message, 400));
+  }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// create activation token
+const createActivationToken = (user) => {
+  return jwt.sign(user.toJSON(), process.env.ACTIVATION_SECRET, {
+    expiresIn: "20m",
+  });
+};
 
 // activate user
 router.post(
@@ -111,22 +91,12 @@ router.post(
         password,
       });
 
-      sendToken(user, 201, res);
+      res.status(201).json({ success: true, message: "Account activated successfully!" });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
     }
   })
 );
-
-
-
-
-
-
-
-
-
-
 
 
 
